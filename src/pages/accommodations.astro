@@ -1,0 +1,328 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Accommodations | The Paddle House at Goose Hill"
+  description="Six bedrooms, a converted barn, eleven acres, and the run of the whole place for your weekend."
+  current="accommodations"
+>
+  {/* ─────────────────────────── HERO ─────────────────────────── */}
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 reveal-mask">
+      <img
+        src="/paddle-house-pics/barn.webp"
+        alt="The barn and common spaces"
+        class="w-full h-full object-cover"
+        data-parallax="14"
+      />
+      <div class="absolute inset-0 bg-ink/40"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 w-full pt-32 pb-20">
+      <div class="max-w-2xl bg-parchment/90 backdrop-blur-sm p-10 md:p-14 editorial-shadow">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-5 reveal">
+          The Estate
+        </p>
+        <h1 class="reveal-chars font-display text-4xl md:text-6xl text-ink leading-[1.05] tracking-tight mb-6">
+          Six bedrooms, one barn, a pond, a pool.
+        </h1>
+        <p class="reveal font-body text-ink/75 text-lg leading-relaxed mb-8">
+          The whole place, handed over for the weekend. Wide floorboards, working hearths, and a quiet corner for everyone.
+        </p>
+        <a
+          href="#main-house"
+          class="reveal inline-flex items-center gap-2 font-label text-xs tracking-[0.25em] uppercase text-copper border-b border-copper/30 pb-1 hover:border-copper transition-colors"
+        >
+          Tour the house
+          <span class="material-symbols-outlined text-sm">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────────── THE MAIN HOUSE ─────────────────────── */}
+  <section id="main-house" class="bg-parchment py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="md:col-span-5 order-2 md:order-1">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-5 reveal">
+          Circa 1786
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-5xl leading-[1.08] tracking-tight text-ink mb-8">
+          The main house.
+        </h2>
+        <div class="space-y-6 font-body text-ink/75 text-lg leading-relaxed">
+          <p class="reveal">
+            Hand-hewn beams where beams were always meant to be. Wide floorboards that creak like they should. Fireplaces in every gathering room, lit on cold weekends before you pull in.
+          </p>
+          <p class="reveal">
+            Six bedrooms. Room for sixteen when a group travels together. Every one of them updated quietly, where it truly helped.
+          </p>
+        </div>
+        <div class="mt-10 grid grid-cols-2 gap-8 border-t border-ink/15 pt-10">
+          <div class="reveal">
+            <span class="block font-display text-4xl text-ink mb-1">6</span>
+            <span class="font-label text-xs tracking-[0.25em] uppercase text-ink/50">Bedrooms</span>
+          </div>
+          <div class="reveal">
+            <span class="block font-display text-4xl text-ink mb-1">16</span>
+            <span class="font-label text-xs tracking-[0.25em] uppercase text-ink/50">Sleeps</span>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-7 order-1 md:order-2">
+        <div class="reveal-mask aspect-[4/5] overflow-hidden editorial-shadow">
+          <img
+            src="/paddle-house-pics/hero-aerial.webp"
+            alt="The Paddle House main residence"
+            class="w-full h-full object-cover img-zoom"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────────── COMMON SPACES BENTO ─────────────────────── */}
+  <section class="bg-parchment-deep py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="max-w-2xl mb-16">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal">
+          Common Ground
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink">
+          Rooms for rallying, rooms for recovering.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="relative group overflow-hidden editorial-shadow aspect-[4/3] reveal-mask">
+          <img
+            class="absolute inset-0 w-full h-full object-cover img-zoom"
+            src="/paddle-house-pics/barn.webp"
+            alt="The barn"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+          <div class="absolute bottom-0 p-8">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/70 mb-2">Post &amp; Beam</p>
+            <h3 class="font-display text-2xl md:text-3xl text-parchment-warm mb-2">The Barn</h3>
+            <p class="font-body text-parchment-warm/80 text-sm max-w-sm">Restored post-and-beam. Room enough for a late dinner, a long table, or a rainy-day game.</p>
+          </div>
+        </div>
+
+        <div class="relative group overflow-hidden editorial-shadow aspect-[4/3] reveal-mask">
+          <img
+            class="absolute inset-0 w-full h-full object-cover img-zoom"
+            src="/paddle-house-pics/camp.webp"
+            alt="The loft"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+          <div class="absolute bottom-0 p-8">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/70 mb-2">The Top Floor</p>
+            <h3 class="font-display text-2xl md:text-3xl text-parchment-warm mb-2">The Loft</h3>
+            <p class="font-body text-parchment-warm/80 text-sm max-w-sm">A reading nook for the quiet ones. A pool table for the loud ones. A fire for both.</p>
+          </div>
+        </div>
+
+        <div class="relative group overflow-hidden editorial-shadow aspect-[4/3] reveal-mask">
+          <img
+            class="absolute inset-0 w-full h-full object-cover img-zoom"
+            src="/paddle-house-pics/pool.webp"
+            alt="The heated pool"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+          <div class="absolute bottom-0 p-8">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/70 mb-2">Summer Hours</p>
+            <h3 class="font-display text-2xl md:text-3xl text-parchment-warm mb-2">The Pool</h3>
+            <p class="font-body text-parchment-warm/80 text-sm max-w-sm">Heated, in-ground, a short walk from the court. The long way around on a warm afternoon.</p>
+          </div>
+        </div>
+
+        <div class="relative group overflow-hidden editorial-shadow aspect-[4/3] reveal-mask">
+          <img
+            class="absolute inset-0 w-full h-full object-cover img-zoom"
+            src="/paddle-house-pics/pond.webp"
+            alt="The pond"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+          <div class="absolute bottom-0 p-8">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/70 mb-2">Golden Hour</p>
+            <h3 class="font-display text-2xl md:text-3xl text-parchment-warm mb-2">The Pond</h3>
+            <p class="font-body text-parchment-warm/80 text-sm max-w-sm">A private dock, water still enough to mirror the trees. Coffee walks quiet here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────── THE GROUNDS (pinned horizontal scrub) ─────────────── */}
+  <section class="bg-parchment paper py-20 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 mb-12 md:mb-20">
+      <div class="max-w-2xl">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-patina mb-5 reveal">
+          Eleven Acres
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink mb-6">
+          The grounds, one frame at a time.
+        </h2>
+        <p class="reveal font-body text-ink/70 text-lg leading-relaxed">
+          Scroll the property like a slow walk around it. Pond first, then the barn, then the court, then the pool.
+        </p>
+      </div>
+    </div>
+
+    <div data-pinned-scroll class="grounds-pin relative overflow-hidden h-screen hidden md:block">
+      <div class="pinned-track h-full flex items-center gap-8 pl-[8vw] pr-[8vw] will-change-transform">
+        <figure class="shrink-0 w-[72vw] lg:w-[56vw] h-[72vh] relative overflow-hidden editorial-shadow">
+          <img src="/paddle-house-pics/pond.webp" alt="The pond at Goose Hill" class="absolute inset-0 w-full h-full object-cover" />
+          <figcaption class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/75 mb-2">01 · The Pond</p>
+            <h3 class="font-display text-3xl md:text-4xl text-parchment-warm">Water still enough to mirror the trees.</h3>
+          </figcaption>
+        </figure>
+        <figure class="shrink-0 w-[72vw] lg:w-[56vw] h-[72vh] relative overflow-hidden editorial-shadow">
+          <img src="/paddle-house-pics/barn.webp" alt="The restored barn" class="absolute inset-0 w-full h-full object-cover" />
+          <figcaption class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/75 mb-2">02 · The Barn</p>
+            <h3 class="font-display text-3xl md:text-4xl text-parchment-warm">Restored with a light hand. Used often.</h3>
+          </figcaption>
+        </figure>
+        <figure class="shrink-0 w-[72vw] lg:w-[56vw] h-[72vh] relative overflow-hidden editorial-shadow">
+          <img src="/paddle-house-pics/court.webp" alt="The heated paddle court" class="absolute inset-0 w-full h-full object-cover" />
+          <figcaption class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/75 mb-2">03 · The Court</p>
+            <h3 class="font-display text-3xl md:text-4xl text-parchment-warm">Lit for dusk. Heated for February.</h3>
+          </figcaption>
+        </figure>
+        <figure class="shrink-0 w-[72vw] lg:w-[56vw] h-[72vh] relative overflow-hidden editorial-shadow">
+          <img src="/paddle-house-pics/pool.webp" alt="The heated pool" class="absolute inset-0 w-full h-full object-cover" />
+          <figcaption class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/75 mb-2">04 · The Pool</p>
+            <h3 class="font-display text-3xl md:text-4xl text-parchment-warm">Warm afternoons, the long way around.</h3>
+          </figcaption>
+        </figure>
+        <figure class="shrink-0 w-[72vw] lg:w-[56vw] h-[72vh] relative overflow-hidden editorial-shadow bg-moss-dark">
+          <div class="absolute inset-0 p-10 md:p-14 flex flex-col justify-between text-parchment-warm">
+            <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/60">05 · The Rest</p>
+            <div>
+              <h3 class="font-display text-3xl md:text-5xl leading-[1.1] mb-6">Stone walls, old maples, a fire pit, a hammock you'll forget about for an hour.</h3>
+              <a href="/book" class="inline-flex items-center gap-2 font-label text-sm tracking-wide border-b border-parchment-warm/40 pb-1 hover:border-parchment-warm transition-colors">
+                Write to John &amp; Erin
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    {/* Mobile fallback: stacked grid, no pin */}
+    <div class="md:hidden max-w-7xl mx-auto px-6 grid grid-cols-1 gap-6">
+      <figure class="reveal-mask aspect-[4/5] relative overflow-hidden editorial-shadow">
+        <img src="/paddle-house-pics/pond.webp" alt="The pond" class="w-full h-full object-cover" />
+        <figcaption class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
+          <p class="font-label text-[10px] tracking-[0.25em] uppercase text-parchment-warm/70 mb-1">01 · The Pond</p>
+          <h3 class="font-display text-2xl text-parchment-warm">Water still enough to mirror the trees.</h3>
+        </figcaption>
+      </figure>
+      <figure class="reveal-mask aspect-[4/5] relative overflow-hidden editorial-shadow">
+        <img src="/paddle-house-pics/barn.webp" alt="The barn" class="w-full h-full object-cover" />
+        <figcaption class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
+          <p class="font-label text-[10px] tracking-[0.25em] uppercase text-parchment-warm/70 mb-1">02 · The Barn</p>
+          <h3 class="font-display text-2xl text-parchment-warm">Restored with a light hand.</h3>
+        </figcaption>
+      </figure>
+      <figure class="reveal-mask aspect-[4/5] relative overflow-hidden editorial-shadow">
+        <img src="/paddle-house-pics/court.webp" alt="The court" class="w-full h-full object-cover" />
+        <figcaption class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
+          <p class="font-label text-[10px] tracking-[0.25em] uppercase text-parchment-warm/70 mb-1">03 · The Court</p>
+          <h3 class="font-display text-2xl text-parchment-warm">Lit for dusk. Heated for February.</h3>
+        </figcaption>
+      </figure>
+      <figure class="reveal-mask aspect-[4/5] relative overflow-hidden editorial-shadow">
+        <img src="/paddle-house-pics/pool.webp" alt="The pool" class="w-full h-full object-cover" />
+        <figcaption class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
+          <p class="font-label text-[10px] tracking-[0.25em] uppercase text-parchment-warm/70 mb-1">04 · The Pool</p>
+          <h3 class="font-display text-2xl text-parchment-warm">Warm afternoons, the long way around.</h3>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {/* ─────────────────────── WHO IT'S FOR ─────────────────────── */}
+  <section class="bg-parchment-deep py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="max-w-2xl mb-16">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal">
+          Who comes here
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink">
+          The weekends we know how to host.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-parchment p-10 editorial-shadow reveal">
+          <span class="material-symbols-outlined text-moss text-3xl mb-6">favorite</span>
+          <h3 class="font-display text-2xl text-ink mb-4">Paddle groups</h3>
+          <p class="font-body text-ink/65 mb-6 leading-relaxed">Eight to sixteen friends, a bracket, and a reason to stay an extra day. The house was practically built for this.</p>
+          <a
+            class="font-label text-xs tracking-[0.25em] uppercase text-copper flex items-center gap-2 hover:text-copper-soft transition-colors"
+            href="/book"
+          >
+            Inquire
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+        <div class="bg-parchment p-10 editorial-shadow md:translate-y-8 reveal">
+          <span class="material-symbols-outlined text-copper text-3xl mb-6">family_restroom</span>
+          <h3 class="font-display text-2xl text-ink mb-4">Family gatherings</h3>
+          <p class="font-body text-ink/65 mb-6 leading-relaxed">A big table, a pond for the kids, a porch for the grandparents. Three generations without anyone tripping over each other.</p>
+          <a
+            class="font-label text-xs tracking-[0.25em] uppercase text-copper flex items-center gap-2 hover:text-copper-soft transition-colors"
+            href="/book"
+          >
+            Inquire
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+        <div class="bg-parchment p-10 editorial-shadow reveal">
+          <span class="material-symbols-outlined text-patina text-3xl mb-6">groups</span>
+          <h3 class="font-display text-2xl text-ink mb-4">Off-sites</h3>
+          <p class="font-body text-ink/65 mb-6 leading-relaxed">A small team, a real table, a fire you don't have to leave at six. The kind of off-site where the best conversations happen at the sink.</p>
+          <a
+            class="font-label text-xs tracking-[0.25em] uppercase text-copper flex items-center gap-2 hover:text-copper-soft transition-colors"
+            href="/book"
+          >
+            Inquire
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── CTA ─────────────────── */}
+  <section class="bg-moss-dark text-parchment-warm py-28 md:py-36 paper">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+      <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/60 mb-6 reveal">
+        Reserve the hill
+      </p>
+      <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
+        The whole place. Your weekend.
+      </h2>
+      <div class="reveal mt-10 flex flex-wrap gap-4 justify-center">
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 bg-parchment text-ink px-9 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors"
+        >
+          Write to John &amp; Erin
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+        <a
+          href="/experience"
+          class="inline-flex items-center gap-2 border border-parchment-warm/40 text-parchment-warm px-9 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm/10 transition-colors"
+        >
+          See the experience
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

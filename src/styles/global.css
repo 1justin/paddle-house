@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  /* Heritage palette — sampled from a 1700s Connecticut farmhouse:
+     worn-wood ink, parchment walls, moss in the stone cracks,
+     oxidized copper, and a faded barn-red accent. */
+  --color-ink: #1c1815;
+  --color-ink-soft: #3a2e24;
+  --color-parchment: #f4ecdf;
+  --color-parchment-warm: #faf4e8;
+  --color-parchment-deep: #ebe0cc;
+  --color-moss: #4a5d3a;
+  --color-moss-dark: #2f3d25;
+  --color-patina: #6b7d6a;
+  --color-copper: #8a5a3b;
+  --color-copper-soft: #a87556;
+  --color-barn: #7d3a2e;
+  --color-bone: #e6d9c2;
+
+  /* Semantic aliases (old tokens map to new) */
+  --color-surface: var(--color-parchment);
+  --color-surface-warm: var(--color-parchment-warm);
+  --color-surface-deep: var(--color-parchment-deep);
+  --color-on-surface: var(--color-ink);
+  --color-primary: var(--color-moss);
+  --color-primary-deep: var(--color-moss-dark);
+  --color-accent: var(--color-copper);
+  --color-outline: var(--color-patina);
+
+  --font-display: "Noto Serif", ui-serif, Georgia, serif;
+  --font-body: "Fraunces", "Source Serif 4", ui-serif, Georgia, serif;
+  --font-label: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-parchment);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "liga";
+  }
+
+  ::selection {
+    background: var(--color-moss);
+    color: var(--color-parchment);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-copper);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 9999;
+    background: var(--color-ink);
+    color: var(--color-parchment);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-label);
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+}
+
+@layer components {
+  /* Paper grain — subtle monochrome noise, applied as an ::after overlay
+     to any element with class `paper`. Keeps the site from feeling flat. */
+  .paper {
+    position: relative;
+    isolation: isolate;
+  }
+  .paper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("/assets/paper-grain.svg");
+    background-size: 360px 360px;
+    mix-blend-mode: multiply;
+    opacity: 0.06;
+  }
+  .paper > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Letterpress shadow on display type — gives Noto Serif a touch of depth
+     like ink pressed into paper. */
+  .letterpress {
+    text-shadow: 0 1px 0 rgba(244, 236, 223, 0.6),
+      0 2px 4px rgba(28, 24, 21, 0.08);
+  }
+
+  /* Editorial shadow — warm, paper-like drop */
+  .editorial-shadow {
+    box-shadow:
+      0 1px 2px rgba(28, 24, 21, 0.04),
+      0 12px 32px rgba(28, 24, 21, 0.08);
+  }
+
+  /* Reveal primitives — motion.js animates these.
+     Elements remain visible if JS fails or prefers-reduced-motion is set. */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+    }
+    .reveal-mask {
+      clip-path: inset(100% 0 0 0);
+    }
+    .reveal-chars [data-char] {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(0.4em);
+    }
+  }
+
+  /* Image hover — slower, heavier feel than a snappy SaaS zoom */
+  .img-zoom {
+    transition: transform 1.1s cubic-bezier(0.2, 0.6, 0.2, 1);
+    will-change: transform;
+  }
+  .img-zoom:hover {
+    transform: scale(1.04);
+  }
+
+  /* Hairline heritage rule */
+  .rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-patina),
+      transparent
+    );
+  }
+}

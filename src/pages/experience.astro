@@ -1,0 +1,262 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="The Experience | The Paddle House at Goose Hill"
+  description="A heated platform tennis court, eleven quiet acres, and the full run of an eighteenth-century farmhouse."
+  current="experience"
+>
+  {/* ─────────────────────────── HERO ─────────────────────────── */}
+  <section class="relative min-h-[88vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0 reveal-mask">
+      <img
+        src="/paddle-house-pics/camp.webp"
+        alt="The Paddle House estate at Goose Hill"
+        class="w-full h-full object-cover"
+        data-parallax="14"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pb-24 md:pb-32 w-full">
+      <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/80 mb-6 reveal">
+        The Experience
+      </p>
+      <h1 class="reveal-chars font-display text-parchment-warm text-5xl sm:text-6xl md:text-8xl leading-[1.02] tracking-tight max-w-5xl letterpress">
+        A court, a house, and the rest of the weekend to yourselves.
+      </h1>
+      <p class="reveal mt-8 font-body text-parchment-warm/85 text-lg md:text-xl max-w-xl leading-relaxed">
+        Regulation platform tennis out back. An eighteenth-century farmhouse out front. Eleven acres of quiet in between.
+      </p>
+      <div class="reveal mt-10 flex flex-wrap gap-4">
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 bg-parchment text-ink px-8 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors"
+        >
+          Write to John &amp; Erin
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+        <a
+          href="#courts"
+          class="inline-flex items-center gap-2 border border-parchment-warm/40 text-parchment-warm px-8 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm/10 transition-colors"
+        >
+          See the court
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────────── THE COURT ─────────────────────── */}
+  <section id="courts" class="bg-parchment py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="md:col-span-5 order-2 md:order-1">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-5 reveal">
+          The Court
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-5xl leading-[1.08] tracking-tight text-ink">
+          Heated October to April. Lit for dusk.
+        </h2>
+        <div class="mt-8 space-y-6 font-body text-ink/75 text-lg leading-relaxed">
+          <p class="reveal">
+            Regulation platform tennis with an aluminum deck and pro-grade screens. The heat kicks on from the first frost and stays on through the last. The lights make dusk a non-issue.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-10">
+          <div class="border-l-2 border-copper pl-5 reveal">
+            <h4 class="font-label text-xs tracking-[0.25em] uppercase text-copper mb-2">Warmth</h4>
+            <p class="font-body text-ink/75 text-sm leading-relaxed">Propane radiant heat under the deck. Play in February without noticing.</p>
+          </div>
+          <div class="border-l-2 border-moss pl-5 reveal">
+            <h4 class="font-label text-xs tracking-[0.25em] uppercase text-moss mb-2">Light</h4>
+            <p class="font-body text-ink/75 text-sm leading-relaxed">Low-glare LED arrays that make a 6 p.m. rally feel like 2 p.m.</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-7 order-1 md:order-2">
+        <div class="reveal-mask aspect-[4/5] overflow-hidden editorial-shadow">
+          <img
+            src="/paddle-house-pics/court.webp"
+            alt="The heated platform tennis court"
+            class="w-full h-full object-cover img-zoom"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── ROUND ROBINS ─────────────────── */}
+  <section class="bg-parchment-deep py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="max-w-2xl mb-16">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-patina mb-5 reveal">
+          Round Robins
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink">
+          Bring eight. Bring twelve. Bring sixteen.
+        </h2>
+        <p class="reveal mt-6 font-body text-ink/70 text-lg leading-relaxed">
+          The house sleeps a group, the court hosts a bracket, and the barn holds the celebration after. Run your own weekend tournament without renting a club.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 bg-parchment p-10 editorial-shadow reveal">
+          <h3 class="font-display text-3xl text-ink mb-4">Your bracket, your rules.</h3>
+          <p class="font-body text-ink/70 mb-6 max-w-md leading-relaxed">
+            Run a Saturday round robin, a Sunday doubles final, a handicap draw. We'll leave scoresheets, a spare net, and a very good pen.
+          </p>
+          <div class="reveal-mask rounded-sm overflow-hidden h-56 md:h-64">
+            <img
+              src="/paddle-house-pics/court.webp"
+              alt="Court with room for a crowd"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+        </div>
+
+        <div class="bg-moss-dark text-parchment-warm p-10 flex flex-col justify-center reveal">
+          <span class="material-symbols-outlined text-parchment-warm text-4xl mb-6">emoji_events</span>
+          <h3 class="font-display text-3xl mb-4 leading-tight">A small trophy, if you want one.</h3>
+          <p class="font-body text-parchment-warm/70 mb-8 leading-relaxed">
+            Let us know in advance and something brass and suitably ridiculous will be waiting on the mantel.
+          </p>
+          <a
+            href="/book"
+            class="inline-flex items-center gap-2 bg-parchment text-ink px-6 py-3 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors w-fit"
+          >
+            Ask John &amp; Erin
+          </a>
+        </div>
+
+        <div class="bg-parchment p-8 editorial-shadow reveal">
+          <span class="material-symbols-outlined text-moss mb-4 text-3xl">sports_tennis</span>
+          <h4 class="font-display text-xl text-ink mb-2">Paddles in the mudroom</h4>
+          <p class="font-body text-sm text-ink/65 leading-relaxed">A small collection of loaner paddles for the ones who forgot theirs.</p>
+        </div>
+        <div class="bg-parchment p-8 editorial-shadow reveal">
+          <span class="material-symbols-outlined text-copper mb-4 text-3xl">local_fire_department</span>
+          <h4 class="font-display text-xl text-ink mb-2">A warm room to come back to</h4>
+          <p class="font-body text-sm text-ink/65 leading-relaxed">Fires laid in the gathering rooms. Kettle on. Towels by the door.</p>
+        </div>
+        <div class="bg-parchment p-8 editorial-shadow reveal">
+          <span class="material-symbols-outlined text-patina mb-4 text-3xl">schedule</span>
+          <h4 class="font-display text-xl text-ink mb-2">Play at your own pace</h4>
+          <p class="font-body text-sm text-ink/65 leading-relaxed">No hourly limits. No court shared. The schedule is whatever you decide at breakfast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── BEYOND THE COURT ─────────────────── */}
+  <section class="bg-parchment py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
+        <div class="w-full md:w-1/2">
+          <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal">
+            Beyond the Baseline
+          </p>
+          <h2 class="reveal-chars font-display text-4xl md:text-5xl leading-[1.08] tracking-tight text-ink mb-8">
+            The hours between matches.
+          </h2>
+          <p class="reveal font-body text-ink/70 text-lg leading-relaxed mb-10">
+            The game is only half of it. The rest is fires, long dinners, an early swim, a slower coffee.
+          </p>
+          <ul class="space-y-8">
+            <li class="flex items-start gap-5 reveal">
+              <div class="bg-parchment-deep p-3 rounded-full mt-1">
+                <span class="material-symbols-outlined text-moss">outdoor_grill</span>
+              </div>
+              <div>
+                <h4 class="font-display text-xl text-ink mb-1">A kitchen big enough for everyone</h4>
+                <p class="font-body text-ink/65">Cook together, or don't. The island takes twelve elbows and no one minds.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-5 reveal">
+              <div class="bg-parchment-deep p-3 rounded-full mt-1">
+                <span class="material-symbols-outlined text-copper">fireplace</span>
+              </div>
+              <div>
+                <h4 class="font-display text-xl text-ink mb-1">Fires, lit</h4>
+                <p class="font-body text-ink/65">A working hearth in every gathering room. Kindling stacked by the back door.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-5 reveal">
+              <div class="bg-parchment-deep p-3 rounded-full mt-1">
+                <span class="material-symbols-outlined text-patina">nature</span>
+              </div>
+              <div>
+                <h4 class="font-display text-xl text-ink mb-1">Eleven acres to wander</h4>
+                <p class="font-body text-ink/65">A pond, a pool, a stand of maples, a barn you can sit inside when it rains.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+          <div class="reveal-mask aspect-[3/4] overflow-hidden editorial-shadow mt-8">
+            <img
+              src="/paddle-house-pics/pond.webp"
+              alt="The pond at golden hour"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+          <div class="reveal-mask aspect-[3/4] overflow-hidden editorial-shadow">
+            <img
+              src="/paddle-house-pics/barn.webp"
+              alt="The barn interior"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── LOCAL CULTURE ─────────────────── */}
+  <section class="bg-ink text-parchment-warm py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="reveal-mask aspect-video overflow-hidden editorial-shadow">
+        <img
+          src="/paddle-house-pics/pond.webp"
+          alt="Washington, Connecticut countryside"
+          class="w-full h-full object-cover opacity-70"
+        />
+      </div>
+      <div>
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-copper-soft mb-5 reveal">
+          Litchfield County
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-5xl leading-[1.08] tracking-tight mb-8">
+          A quiet corner of a loud paddle state.
+        </h2>
+        <p class="reveal font-body text-parchment-warm/75 text-lg leading-relaxed mb-6">
+          Connecticut plays more platform tennis than anywhere in the country. Washington is where the state gets quiet about it.
+        </p>
+        <p class="reveal font-body text-parchment-warm/75 text-lg leading-relaxed">
+          Old clubs, friendly leagues, and a two-hour weather window most weekends between October and April.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── CTA ─────────────────── */}
+  <section class="bg-moss-dark text-parchment-warm py-28 md:py-36 paper">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+      <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/60 mb-6 reveal">
+        Plan your weekend
+      </p>
+      <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
+        The court warms up in an hour. The kettle's faster.
+      </h2>
+      <div class="reveal mt-10">
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 bg-parchment text-ink px-9 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors"
+        >
+          Write to John &amp; Erin
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

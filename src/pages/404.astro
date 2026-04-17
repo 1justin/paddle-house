@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Out of bounds | The Paddle House">
+  <section class="relative min-h-[92vh] flex items-center paper bg-parchment overflow-hidden">
+    {/* Decorative paddle-court baseline SVG, faintly drawn in the background. */}
+    <svg
+      class="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none"
+      viewBox="0 0 1200 800"
+      fill="none"
+      aria-hidden="true"
+    >
+      {/* Court outline */}
+      <rect
+        x="200"
+        y="180"
+        width="800"
+        height="440"
+        stroke="currentColor"
+        stroke-width="2"
+        class="text-ink"
+      />
+      {/* Service line */}
+      <line
+        x1="200"
+        y1="400"
+        x2="1000"
+        y2="400"
+        stroke="currentColor"
+        stroke-width="1.5"
+        class="text-ink"
+      />
+      {/* Center service */}
+      <line
+        x1="600"
+        y1="280"
+        x2="600"
+        y2="520"
+        stroke="currentColor"
+        stroke-width="1.5"
+        class="text-ink"
+      />
+      {/* The errant ball — well past the baseline */}
+      <circle cx="1090" cy="140" r="8" fill="currentColor" class="text-barn" />
+      {/* Dashed trajectory */}
+      <path
+        d="M 600 400 Q 850 200 1090 140"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-dasharray="4 8"
+        class="text-barn"
+        fill="none"
+      />
+    </svg>
+
+    <div class="relative max-w-4xl mx-auto px-6 md:px-10 py-24 text-center">
+      <p
+        class="font-label text-xs tracking-[0.3em] uppercase text-patina mb-8 reveal"
+      >
+        Error 404 · Out of bounds
+      </p>
+      <h1
+        class="reveal-chars font-display text-7xl sm:text-8xl md:text-[10rem] leading-[0.95] tracking-tight text-ink letterpress"
+      >
+        Wide.
+      </h1>
+      <p
+        class="reveal mt-10 font-body italic text-xl md:text-2xl text-ink/75 max-w-2xl mx-auto leading-relaxed"
+      >
+        That one sailed past the baseline. The page you're looking for isn't on
+        our court.
+      </p>
+      <div class="reveal mt-12 flex flex-wrap gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 bg-moss text-parchment-warm px-8 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-moss-dark transition-colors"
+        >
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Back to the baseline
+        </a>
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 border border-ink/20 text-ink px-8 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-ink/5 transition-colors"
+        >
+          Write to John &amp; Erin
+        </a>
+      </div>
+
+      <p class="reveal mt-16 font-label text-xs tracking-[0.25em] uppercase text-patina/70">
+        The umpire was lenient. Try again.
+      </p>
+    </div>
+  </section>
+</Layout>

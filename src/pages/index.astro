@@ -1,0 +1,207 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="The Paddle House at Goose Hill | Washington, CT" current="home">
+  {/* ───────────────────────────── HERO ───────────────────────────── */}
+  <section class="relative min-h-[92vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0 reveal-mask">
+      <img
+        src="/paddle-house-pics/hero-aerial.webp"
+        alt="Aerial view of the Paddle House estate in autumn"
+        class="w-full h-full object-cover"
+        data-parallax="14"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent"
+      >
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pb-24 md:pb-32 w-full">
+      <p
+        class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/80 mb-6 reveal"
+      >
+        Est. 1786 · Washington, Connecticut
+      </p>
+      <h1
+        class="reveal-chars font-display text-parchment-warm text-5xl sm:text-6xl md:text-8xl leading-[1.02] tracking-tight max-w-5xl letterpress"
+      >
+        Old house. New volley.
+      </h1>
+      <p
+        class="reveal mt-8 font-body text-parchment-warm/85 text-lg md:text-xl max-w-xl leading-relaxed"
+      >
+        An eighteenth-century farmhouse on eleven quiet acres, with a paddle
+        court out back and two hosts who will hand you a warm mug before you're
+        through the door.
+      </p>
+      <div class="reveal mt-10 flex flex-wrap gap-4">
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 bg-parchment text-ink px-8 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors"
+        >
+          Write to John &amp; Erin
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+        <a
+          href="/experience"
+          class="inline-flex items-center gap-2 border border-parchment-warm/40 text-parchment-warm px-8 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm/10 transition-colors"
+        >
+          The Experience
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────────── INVITATION STRIP ─────────────────────── */}
+  <section class="paper bg-parchment py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="md:col-span-4">
+        <div class="reveal-mask aspect-[4/5] overflow-hidden editorial-shadow">
+          <img
+            src="/paddle-house-pics/john-erin-oros-paddle-selfie-in-car.png"
+            alt="John and Erin, paddles in hand"
+            class="w-full h-full object-cover img-zoom"
+          />
+        </div>
+      </div>
+      <div class="md:col-span-8">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-patina mb-8 reveal">
+          A note from the hosts
+        </p>
+        <blockquote class="reveal-chars font-display italic text-3xl md:text-5xl leading-[1.15] text-ink">
+          The whole place is yours. We're not here; we're elsewhere. What a 1786 farmhouse should be, we've kept. What truly earns a change, we've changed.
+        </blockquote>
+        <p class="reveal mt-10 font-body text-ink/70 text-lg italic">John &amp; Erin</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ───────────────────────────── THE PLAY ───────────────────────── */}
+  <section class="bg-parchment-deep py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-end mb-16">
+        <div class="md:col-span-5">
+          <p
+            class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-5 reveal"
+          >
+            The Play
+          </p>
+          <h2
+            class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink"
+          >
+            A court that takes the weather personally.
+          </h2>
+        </div>
+        <div class="md:col-span-6 md:col-start-7">
+          <p class="reveal font-body text-ink/75 text-lg leading-relaxed">
+            Regulation platform tennis, heated from October through April. Lit
+            for dusk rallies, sheltered enough for February. Bring a paddle, or
+            borrow one of ours. We've collected a few over the years.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal-mask rounded-sm overflow-hidden editorial-shadow aspect-[16/9]">
+        <img
+          src="/paddle-house-pics/court.webp"
+          alt="The heated platform tennis court at dusk"
+          class="w-full h-full object-cover img-zoom"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* ──────────────────────────── THE STAY ────────────────────────── */}
+  <section class="bg-parchment py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="max-w-2xl mb-20">
+        <p
+          class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal"
+        >
+          The Stay
+        </p>
+        <h2
+          class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink"
+        >
+          Rooms with a little wear on them.
+        </h2>
+        <p class="reveal mt-6 font-body text-ink/70 text-lg leading-relaxed">
+          Six bedrooms in the main house. A converted barn for the late ones.
+          A loft for the readers. Every square foot of it is antique, and
+          yours for the weekend.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <a href="/accommodations" class="group reveal">
+          <div class="aspect-[4/5] overflow-hidden editorial-shadow mb-5 reveal-mask">
+            <img
+              src="/paddle-house-pics/barn.webp"
+              alt="The converted barn at night"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+          <p class="font-label text-xs tracking-[0.25em] uppercase text-patina mb-2">
+            The Barn
+          </p>
+          <p class="font-display text-2xl text-ink group-hover:text-moss transition-colors">
+            Late nights, low beams.
+          </p>
+        </a>
+        <a href="/accommodations" class="group reveal md:translate-y-12">
+          <div class="aspect-[4/5] overflow-hidden editorial-shadow mb-5 reveal-mask">
+            <img
+              src="/paddle-house-pics/pond.webp"
+              alt="The pond at golden hour"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+          <p class="font-label text-xs tracking-[0.25em] uppercase text-patina mb-2">
+            The Grounds
+          </p>
+          <p class="font-display text-2xl text-ink group-hover:text-moss transition-colors">
+            A pond, a fire pit, a lawn you'll walk barefoot.
+          </p>
+        </a>
+        <a href="/accommodations" class="group reveal">
+          <div class="aspect-[4/5] overflow-hidden editorial-shadow mb-5 reveal-mask">
+            <img
+              src="/paddle-house-pics/pool.webp"
+              alt="The pool in summer"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+          <p class="font-label text-xs tracking-[0.25em] uppercase text-patina mb-2">
+            The Pool
+          </p>
+          <p class="font-display text-2xl text-ink group-hover:text-moss transition-colors">
+            Warm afternoons, the long way around.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ────────────────────────── CTA ────────────────────────── */}
+  <section class="bg-moss-dark text-parchment-warm py-28 md:py-36 paper">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+      <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/60 mb-6 reveal">
+        Plan your weekend
+      </p>
+      <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
+        Pull up the drive. We'll put the kettle on.
+      </h2>
+      <div class="reveal mt-10">
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 bg-parchment text-ink px-9 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors"
+        >
+          Write to John &amp; Erin
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

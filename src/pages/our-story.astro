@@ -1,0 +1,211 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Our Story | The Paddle House at Goose Hill"
+  description="The story of the 1786 farmhouse, the paddle court out back, and the two people who quietly keep it all going."
+  current="story"
+>
+  {/* ─────────────────────────── HERO ─────────────────────────── */}
+  <section class="relative min-h-[88vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0 reveal-mask">
+      <img
+        src="/paddle-house-pics/court.webp"
+        alt="The paddle court and grounds at Goose Hill"
+        class="w-full h-full object-cover"
+        data-parallax="14"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pb-24 md:pb-32 w-full">
+      <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/80 mb-6 reveal">
+        Our Story
+      </p>
+      <h1 class="reveal-chars font-display text-parchment-warm text-5xl sm:text-6xl md:text-8xl leading-[1.02] tracking-tight max-w-5xl letterpress">
+        Two stewards, one old house, a court out back.
+      </h1>
+      <p class="reveal mt-8 font-body text-parchment-warm/85 text-lg md:text-xl max-w-xl leading-relaxed">
+        John and Erin don't live here. They keep watch over it, preserve what earned its place, and modernize only what earns the change.
+      </p>
+    </div>
+  </section>
+
+  {/* ─────────────────────── THE VISION ─────────────────────── */}
+  <section class="paper bg-parchment py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="md:col-span-7 order-2 md:order-1">
+        <div class="reveal-mask aspect-[4/3] overflow-hidden editorial-shadow">
+          <img
+            src="/paddle-house-pics/hero-aerial.webp"
+            alt="Aerial view of the Goose Hill property"
+            class="w-full h-full object-cover img-zoom"
+          />
+        </div>
+      </div>
+      <div class="md:col-span-5 order-1 md:order-2">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-5 reveal">
+          The Vision
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-5xl leading-[1.08] tracking-tight text-ink">
+          An old farmhouse, a good game, and the room to share both.
+        </h2>
+        <div class="mt-8 space-y-6 font-body text-ink/75 text-lg leading-relaxed">
+          <p class="reveal">
+            When John and Erin found Goose Hill, they didn't set out to run a hotel. They set out to keep an eighteenth-century farmhouse standing, and to open it up to the people they love playing paddle with.
+          </p>
+          <p class="reveal">
+            The plan was simple. Restore the bones. Warm the rooms. Put a court out back. Then hand the whole place, at weekend pace, to groups who would enjoy it the way the house wants to be enjoyed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ───────────────────── JOHN & ERIN ───────────────────── */}
+  <section class="bg-parchment-warm py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="flex flex-col md:flex-row gap-12 lg:gap-20">
+        <div class="w-full md:w-1/2">
+          <div class="md:sticky md:top-32">
+            <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal">
+              The Hosts, Offstage
+            </p>
+            <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink mb-8">
+              John &amp; Erin
+            </h2>
+            <p class="reveal font-body italic text-lg text-ink/70 leading-relaxed mb-12">
+              They're not on the property when you're here. You have the house, the court, the pond, the pool, and every quiet corner to yourselves. What John and Erin do is earlier, and offstage: pick the rugs, seal the beams, sharpen the itinerary.
+            </p>
+            <div class="space-y-6">
+              <div class="bg-parchment p-8 rounded-sm border-l-2 border-copper reveal">
+                <p class="font-label text-xs tracking-[0.25em] uppercase text-copper mb-3">Erin</p>
+                <p class="font-body text-ink/75 leading-relaxed">
+                  A Trustee on the Board of the Upper Ridgewood Tennis Club. Erin handles what you don't see: the rhythm of the rooms, the quality of the towels, the notes left on the counter that somehow know exactly when you'll arrive.
+                </p>
+              </div>
+              <div class="bg-parchment p-8 rounded-sm border-l-2 border-moss reveal">
+                <p class="font-label text-xs tracking-[0.25em] uppercase text-moss mb-3">John</p>
+                <p class="font-body text-ink/75 leading-relaxed">
+                  A quiet obsessive about architecture and local history. John led the restoration of the main house and the barn, keeping what a 1786 farmhouse should keep and replacing only what truly had to go.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 flex flex-col gap-8">
+          <div class="reveal-mask aspect-[4/5] overflow-hidden editorial-shadow">
+            <img
+              src="/paddle-house-pics/john-erin-oros-at-tennis-court.png"
+              alt="John and Erin at a paddle tournament"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+          <div class="reveal-mask aspect-[3/4] overflow-hidden editorial-shadow md:ml-12">
+            <img
+              src="/paddle-house-pics/john-oros-with-dog.png"
+              alt="John with the family dog"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+          <div class="reveal-mask aspect-[4/5] overflow-hidden editorial-shadow md:-mt-8">
+            <img
+              src="/paddle-house-pics/oros-family.png"
+              alt="The Oros family"
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── HOUSE & BARN ─────────────────── */}
+  <section class="bg-parchment-deep py-24 md:py-32 paper">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="max-w-3xl mb-16">
+        <p class="font-label text-xs tracking-[0.3em] uppercase text-patina mb-5 reveal">
+          Heritage
+        </p>
+        <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink">
+          The house and the barn.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div class="md:col-span-8 relative overflow-hidden editorial-shadow aspect-[16/10] reveal-mask">
+          <img
+            src="/paddle-house-pics/hero-aerial.webp"
+            alt="The main house from the drive"
+            class="w-full h-full object-cover img-zoom"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent flex flex-col justify-end p-8 md:p-12">
+            <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/70 mb-2">
+              Circa 1786
+            </p>
+            <h3 class="font-display text-3xl md:text-4xl text-parchment-warm mb-2">
+              The Main House
+            </h3>
+            <p class="font-body text-parchment-warm/80 max-w-md">
+              Hand-hewn beams, wide floorboards, a working fireplace in every gathering room. Restored where it needed it. Left alone where it didn't.
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 grid grid-rows-2 gap-6">
+          <div class="relative overflow-hidden editorial-shadow reveal-mask group">
+            <img
+              src="/paddle-house-pics/barn.webp"
+              alt="Inside the restored barn"
+              class="w-full h-full object-cover img-zoom"
+            />
+            <div class="absolute inset-0 bg-ink/40 flex items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div>
+                <h4 class="font-display text-2xl text-parchment-warm mb-2">
+                  The Barn
+                </h4>
+                <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/80">
+                  Post &amp; Beam
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-moss-dark p-8 flex flex-col justify-between reveal">
+            <span class="material-symbols-outlined text-parchment-warm text-3xl">history</span>
+            <div class="mt-4">
+              <h4 class="font-display text-2xl text-parchment-warm mb-3 leading-tight italic">
+                Kept, not curated.
+              </h4>
+              <p class="font-body text-parchment-warm/70 text-sm leading-relaxed">
+                Nothing here has been staged for effect. Every board, every hinge, every pane of glass earns its keep.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─────────────────── CTA ─────────────────── */}
+  <section class="bg-moss-dark text-parchment-warm py-28 md:py-36 paper">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+      <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/60 mb-6 reveal">
+        The next chapter
+      </p>
+      <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
+        Come write a weekend into the house.
+      </h2>
+      <div class="reveal mt-10">
+        <a
+          href="/book"
+          class="inline-flex items-center gap-2 bg-parchment text-ink px-9 py-4 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-parchment-warm transition-colors"
+        >
+          Write to John &amp; Erin
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
