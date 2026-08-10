@@ -1,0 +1,111 @@
+---
+/* Ambient background video with a still-image fallback.
+   Drop-in replacement for a background <img>: same classes, same
+   data-parallax hook, so motion.js picks it up without changes.
+
+   Video bytes are only ever fetched on a desktop viewport with motion
+   allowed — mobile and prefers-reduced-motion get the poster still and
+   download nothing. Until `src` is provided the component renders a
+   plain <img>, so sections can be wired up before any clip exists. */
+
+interface Props {
+  /** Poster still. Shown on mobile, on reduced-motion, and before playback. */
+  poster: string;
+  /** Describes the scene. Required — these sit behind headline copy. */
+  alt: string;
+  /** MP4 (h.264) path. Omit to render the poster still only. */
+  src?: string;
+  /** Optional WebM, offered before the MP4 when present. */
+  webm?: string;
+  /** Extra classes on the media element. */
+  class?: string;
+  /** Parallax drift in yPercent, matching the <img data-parallax> convention. */
+  parallax?: number;
+}
+
+const {
+  poster,
+  alt,
+  src,
+  webm,
+  class: className = "w-full h-full object-cover",
+  parallax,
+} = Astro.props;
+---
+
+{
+  src ? (
+    <video
+      data-bg-video
+      data-mp4={src}
+      data-webm={webm}
+      poster={poster}
+      aria-label={alt}
+      class={className}
+      data-parallax={parallax}
+      muted
+      loop
+      playsinline
+      preload="none"
+    />
+  ) : (
+    <img src={poster} alt={alt} class={className} data-parallax={parallax} />
+  )
+}
+
+<script>
+  /* Attach sources only when playing is actually appropriate. A <video>
+     with a poster and no <source> renders the poster and fetches nothing,
+     so bailing out early is itself the mobile/reduced-motion fallback. */
+  const desktop = window.matchMedia("(min-width: 768px)");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const allowed = () => {
+    if (!desktop.matches || reduced.matches) return false;
+    // Respect Data Saver where the browser exposes it.
+    const conn = (navigator as any).connection;
+    return !conn?.saveData;
+  };
+
+  const load = (video: HTMLVideoElement) => {
+    if (video.dataset.bgLoaded) return;
+    video.dataset.bgLoaded = "true";
+
+    const add = (src: string | undefined, type: string) => {
+      if (!src) return;
+      const source = document.createElement("source");
+      source.src = src;
+      source.type = type;
+      video.appendChild(source);
+    };
+    add(video.dataset.webm, "video/webm");
+    add(video.dataset.mp4, "video/mp4");
+
+    video.load();
+    // Autoplay can still be refused; the poster stays put if so.
+    video.play().catch(() => {});
+  };
+
+  const videos =
+    document.querySelectorAll<HTMLVideoElement>("video[data-bg-video]");
+
+  if (videos.length && allowed()) {
+    // Load a little before the section scrolls in; pause once it leaves so
+    // offscreen clips aren't burning CPU on a long page.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            load(video);
+            video.play().catch(() => {});
+          } else if (video.dataset.bgLoaded) {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: "200px 0px" }
+    );
+    videos.forEach((video) => observer.observe(video));
+  }
+</script>

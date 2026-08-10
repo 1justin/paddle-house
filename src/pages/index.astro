@@ -1,16 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import BackgroundVideo from "../components/BackgroundVideo.astro";
 ---
 
 <Layout title="The Paddle House at Goose Hill | Washington, CT" current="home">
   {/* ───────────────────────────── HERO ───────────────────────────── */}
   <section class="relative min-h-[92vh] flex items-end overflow-hidden">
     <div class="absolute inset-0 reveal-mask">
-      <img
-        src="/paddle-house-pics/hero-aerial.webp"
+      {/* Add src="/paddle-house-pics/video/<clip>.mp4" once a clip exists;
+          the poster below stays the mobile and reduced-motion fallback. */}
+      <BackgroundVideo
+        poster="/paddle-house-pics/hero-aerial.webp"
         alt="Aerial view of the Paddle House estate in autumn"
-        class="w-full h-full object-cover"
-        data-parallax="14"
+        parallax={14}
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/35 to-ink/15"
