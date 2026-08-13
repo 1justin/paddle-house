@@ -7,11 +7,10 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
   {/* ───────────────────────────── HERO ───────────────────────────── */}
   <section class="relative min-h-[92vh] flex items-end overflow-hidden">
     <div class="absolute inset-0 reveal-mask">
-      {/* Add src="/paddle-house-pics/video/<clip>.mp4" once a clip exists;
-          the poster below stays the mobile and reduced-motion fallback. */}
       <BackgroundVideo
-        poster="/paddle-house-pics/hero-aerial.webp"
-        alt="Aerial view of the Paddle House estate in autumn"
+        src="/paddle-house-pics/video/drone-estate.mp4"
+        poster="/paddle-house-pics/drone-estate-poster.jpg"
+        alt="The farmhouse and barn at Goose Hill, seen from the lawn as the view rises over the estate"
         parallax={14}
       />
       <div
@@ -182,9 +181,10 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
         </a>
         <a href="/accommodations" class="group reveal">
           <div class="aspect-[4/5] overflow-hidden editorial-shadow mb-5 reveal-mask">
-            <img
-              src="/paddle-house-pics/pool.webp"
-              alt="The pool in summer"
+            <BackgroundVideo
+              src="/paddle-house-pics/video/pool-ripples.mp4"
+              poster="/paddle-house-pics/pool-ripples-poster.jpg"
+              alt="The pool in summer, wind rippling across the water, the barn beyond"
               class="w-full h-full object-cover img-zoom"
             />
           </div>

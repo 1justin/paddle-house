@@ -89,7 +89,20 @@ const {
   const videos =
     document.querySelectorAll<HTMLVideoElement>("video[data-bg-video]");
 
-  if (videos.length && allowed()) {
+  if (videos.length) {
+    // Tracked separately from the observer so a later change in conditions
+    // can act on whatever is on screen at that moment.
+    const onScreen = new Set<HTMLVideoElement>();
+
+    const settle = (video: HTMLVideoElement) => {
+      if (allowed()) {
+        load(video);
+        video.play().catch(() => {});
+      } else if (video.dataset.bgLoaded) {
+        video.pause();
+      }
+    };
+
     // Load a little before the section scrolls in; pause once it leaves so
     // offscreen clips aren't burning CPU on a long page.
     const observer = new IntersectionObserver(
@@ -97,15 +110,24 @@ const {
         entries.forEach((entry) => {
           const video = entry.target as HTMLVideoElement;
           if (entry.isIntersecting) {
-            load(video);
-            video.play().catch(() => {});
-          } else if (video.dataset.bgLoaded) {
-            video.pause();
+            onScreen.add(video);
+            settle(video);
+          } else {
+            onScreen.delete(video);
+            if (video.dataset.bgLoaded) video.pause();
           }
         });
       },
       { rootMargin: "200px 0px" }
     );
     videos.forEach((video) => observer.observe(video));
+
+    /* Conditions are re-checked, never decided once: a window dragged past
+       the breakpoint or an OS motion preference toggled mid-visit should
+       take effect. Gating observer setup on allowed() instead would strand
+       anyone who loaded the page in a narrow window. */
+    const sync = () => onScreen.forEach(settle);
+    desktop.addEventListener("change", sync);
+    reduced.addEventListener("change", sync);
   }
 </script>
