@@ -3,10 +3,11 @@
    Drop-in replacement for a background <img>: same classes, same
    data-parallax hook, so motion.js picks it up without changes.
 
-   Video bytes are only ever fetched on a desktop viewport with motion
-   allowed — mobile and prefers-reduced-motion get the poster still and
-   download nothing. Until `src` is provided the component renders a
-   plain <img>, so sections can be wired up before any clip exists. */
+   Video bytes are only fetched when motion is actually wanted: reduced-motion
+   and Data Saver get the poster still and download nothing. Clips play on
+   phones too — the poster alone looked broken next to a desktop that moves.
+   Until `src` is provided the component renders a plain <img>, so sections
+   can be wired up before any clip exists. */
 
 interface Props {
   /** Poster still. Shown on mobile, on reduced-motion, and before playback. */
@@ -57,11 +58,10 @@ const {
   /* Attach sources only when playing is actually appropriate. A <video>
      with a poster and no <source> renders the poster and fetches nothing,
      so bailing out early is itself the mobile/reduced-motion fallback. */
-  const desktop = window.matchMedia("(min-width: 768px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const allowed = () => {
-    if (!desktop.matches || reduced.matches) return false;
+    if (reduced.matches) return false;
     // Respect Data Saver where the browser exposes it.
     const conn = (navigator as any).connection;
     return !conn?.saveData;
@@ -122,12 +122,9 @@ const {
     );
     videos.forEach((video) => observer.observe(video));
 
-    /* Conditions are re-checked, never decided once: a window dragged past
-       the breakpoint or an OS motion preference toggled mid-visit should
-       take effect. Gating observer setup on allowed() instead would strand
-       anyone who loaded the page in a narrow window. */
-    const sync = () => onScreen.forEach(settle);
-    desktop.addEventListener("change", sync);
-    reduced.addEventListener("change", sync);
+    /* Re-checked, never decided once: an OS motion preference toggled
+       mid-visit should take effect. Gating observer setup on allowed()
+       instead would strand anyone whose conditions changed after load. */
+    reduced.addEventListener("change", () => onScreen.forEach(settle));
   }
 </script>
