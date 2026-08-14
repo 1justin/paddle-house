@@ -43,10 +43,16 @@ import Layout from "../layouts/Layout.astro";
           <h2 class="font-display text-3xl md:text-4xl text-ink leading-tight mb-3">Tell us about your weekend.</h2>
           <p class="font-body text-ink/60">No form fields we don't actually need. We usually reply within the day.</p>
         </div>
-        <form
-          class="space-y-8"
-          onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); this.classList.add('hidden');"
-        >
+        <form id="inquiryForm" class="space-y-8">
+          <input
+            type="text"
+            name="website"
+            id="website"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            class="hidden"
+          />
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label class="font-label text-xs font-semibold tracking-[0.2em] uppercase text-ink/70" for="name">Your name</label>
@@ -70,7 +76,8 @@ import Layout from "../layouts/Layout.astro";
               <select id="group-type" class="w-full bg-parchment border border-ink/10 rounded-sm p-4 font-body text-ink focus:border-copper focus:ring-2 focus:ring-copper/20 focus:outline-none transition-all appearance-none">
                 <option>Paddle weekend</option>
                 <option>Family gathering</option>
-                <option>Off-site or retreat</option>
+                <option>Yoga, wellness, or mahjong retreat</option>
+                <option>Off-site or workshop</option>
                 <option>Tournament or round robin</option>
                 <option>Birthday or milestone</option>
                 <option>Something else</option>
@@ -80,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label class="font-label text-xs font-semibold tracking-[0.2em] uppercase text-ink/70" for="guests">How many</label>
-              <input id="guests" class="w-full bg-parchment border border-ink/10 rounded-sm p-4 font-body text-ink focus:border-copper focus:ring-2 focus:ring-copper/20 focus:outline-none transition-all" placeholder="8" type="number" min="1" max="16" />
+              <input id="guests" class="w-full bg-parchment border border-ink/10 rounded-sm p-4 font-body text-ink focus:border-copper focus:ring-2 focus:ring-copper/20 focus:outline-none transition-all" placeholder="8" type="number" min="1" max="14" />
             </div>
             <div class="space-y-2">
               <label class="font-label text-xs font-semibold tracking-[0.2em] uppercase text-ink/70" for="players">Of those, how many play paddle</label>
@@ -91,8 +98,13 @@ import Layout from "../layouts/Layout.astro";
             <label class="font-label text-xs font-semibold tracking-[0.2em] uppercase text-ink/70" for="notes">Anything else</label>
             <textarea id="notes" class="w-full bg-parchment border border-ink/10 rounded-sm p-4 font-body text-ink focus:border-copper focus:ring-2 focus:ring-copper/20 focus:outline-none transition-all" placeholder="Dietary notes, a tournament idea, a birthday to mark, a dog coming along..." rows="4"></textarea>
           </div>
+          <p id="formError" class="hidden font-body text-sm text-barn leading-relaxed">
+            Something went wrong sending your note. Please try again, or email
+            us directly at
+            <a href="mailto:hello@thepaddlehouse.com" class="underline">hello@thepaddlehouse.com</a>.
+          </p>
           <div class="flex flex-col sm:flex-row gap-4 pt-4">
-            <button type="submit" class="flex-1 bg-moss-dark text-parchment-warm py-5 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-ink transition-colors">
+            <button type="submit" id="sendBtn" class="flex-1 bg-moss-dark text-parchment-warm py-5 rounded-full font-label text-sm font-semibold tracking-wide hover:bg-ink transition-colors disabled:opacity-60 disabled:cursor-wait">
               Send the note
             </button>
             <a
@@ -103,6 +115,43 @@ import Layout from "../layouts/Layout.astro";
             </a>
           </div>
         </form>
+        <script>
+          const form = document.getElementById("inquiryForm") as HTMLFormElement;
+          form?.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const btn = document.getElementById("sendBtn") as HTMLButtonElement;
+            const errorEl = document.getElementById("formError")!;
+            errorEl.classList.add("hidden");
+            btn.disabled = true;
+            btn.textContent = "Sending…";
+            const val = (id: string) =>
+              (document.getElementById(id) as HTMLInputElement | null)?.value ?? "";
+            try {
+              const res = await fetch("/api/inquire", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  name: val("name"),
+                  email: val("email"),
+                  dates: val("dates"),
+                  groupType: val("group-type"),
+                  guests: val("guests"),
+                  players: val("players"),
+                  notes: val("notes"),
+                  website: val("website"),
+                }),
+              });
+              const body = await res.json().catch(() => ({ ok: false }));
+              if (!res.ok || !body.ok) throw new Error(body.error ?? "send failed");
+              document.getElementById("formSuccess")!.classList.remove("hidden");
+              form.classList.add("hidden");
+            } catch {
+              errorEl.classList.remove("hidden");
+              btn.disabled = false;
+              btn.textContent = "Send the note";
+            }
+          });
+        </script>
         {/* Success state */}
         <div id="formSuccess" class="hidden text-center py-16">
           <span class="material-symbols-outlined text-moss text-6xl mb-6" style="font-variation-settings:'FILL' 1">check_circle</span>
@@ -113,56 +162,44 @@ import Layout from "../layouts/Layout.astro";
 
       {/* Sidebar */}
       <div class="lg:col-span-5 space-y-12">
-        {/* Availability calendar */}
+        {/* How this works */}
+        <div class="bg-parchment-warm p-8 editorial-shadow border-l-2 border-copper reveal">
+          <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-4">How this works</p>
+          <h3 class="font-display text-2xl text-ink mb-4">A family place, shared on purpose.</h3>
+          <div class="space-y-4 font-body text-ink/70 text-sm leading-relaxed">
+            <p>
+              We're not on Airbnb or VRBO, and this form isn't a booking engine.
+              Goose Hill is our second home, and we set dates the way you'd
+              lend a house to a friend: a note, a reply, a weekend that works
+              for everyone.
+            </p>
+            <p>
+              When you arrive, a QR code on the kitchen counter opens the
+              guest portal: house guide, wifi, and where we'd actually eat
+              in town.
+            </p>
+          </div>
+        </div>
+
+        {/* Pricing */}
         <div class="bg-parchment-deep p-8 editorial-shadow reveal">
-          <div class="flex justify-between items-end mb-6">
-            <h3 class="font-display text-2xl text-ink">Availability</h3>
-            <span class="font-label text-xs font-semibold tracking-[0.2em] uppercase text-moss">Summer 2026</span>
-          </div>
-          <div class="grid grid-cols-7 gap-1.5 text-center">
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">S</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">M</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">T</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">W</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">T</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">F</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-ink/50 py-2">S</div>
-
-            <div class="p-2.5 text-xs text-ink/30">28</div>
-            <div class="p-2.5 text-xs text-ink/30">29</div>
-            <div class="p-2.5 text-xs text-ink/30">30</div>
-            <div class="p-2.5 text-xs font-medium text-ink">1</div>
-            <div class="p-2.5 text-xs font-medium text-ink">2</div>
-            <div class="p-2.5 text-xs font-medium bg-barn/15 text-barn line-through rounded-sm">3</div>
-            <div class="p-2.5 text-xs font-medium bg-barn/15 text-barn line-through rounded-sm">4</div>
-
-            <div class="p-2.5 text-xs font-medium bg-barn/15 text-barn line-through rounded-sm">5</div>
-            <div class="p-2.5 text-xs font-medium text-ink">6</div>
-            <div class="p-2.5 text-xs font-medium text-ink">7</div>
-            <div class="p-2.5 text-xs font-medium text-ink">8</div>
-            <div class="p-2.5 text-xs font-medium text-ink">9</div>
-            <div class="p-2.5 text-xs font-medium text-ink">10</div>
-            <div class="p-2.5 text-xs font-medium text-ink">11</div>
-
-            <div class="p-2.5 text-xs font-semibold bg-moss/20 text-moss-dark rounded-sm">12</div>
-            <div class="p-2.5 text-xs font-semibold bg-moss/20 text-moss-dark rounded-sm">13</div>
-            <div class="p-2.5 text-xs font-medium text-ink">14</div>
-            <div class="p-2.5 text-xs font-medium text-ink">15</div>
-            <div class="p-2.5 text-xs font-medium text-ink">16</div>
-            <div class="p-2.5 text-xs font-medium text-ink">17</div>
-            <div class="p-2.5 text-xs font-medium text-ink">18</div>
-
-            <div class="p-2.5 text-xs font-medium text-ink">19</div>
-            <div class="p-2.5 text-xs font-medium text-ink">20</div>
-            <div class="p-2.5 text-xs font-medium bg-barn/15 text-barn line-through rounded-sm">21</div>
-            <div class="p-2.5 text-xs font-medium bg-barn/15 text-barn line-through rounded-sm">22</div>
-            <div class="p-2.5 text-xs font-medium bg-barn/15 text-barn line-through rounded-sm">23</div>
-            <div class="p-2.5 text-xs font-medium text-ink">24</div>
-            <div class="p-2.5 text-xs font-medium text-ink">25</div>
-          </div>
-          <div class="mt-6 flex items-center gap-5 font-label text-[10px] tracking-[0.2em] uppercase text-ink/55">
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-barn"></span> Booked</span>
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-moss"></span> Hold</span>
+          <p class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-4">What it costs</p>
+          <p class="font-display text-3xl md:text-4xl text-ink leading-tight mb-4">
+            $100 to $150 <span class="text-xl text-ink/60">per guest, per night</span>
+          </p>
+          <p class="font-body text-ink/70 text-sm leading-relaxed">
+            Most stays land in that range, depending on the season, the size of
+            your group, and how long you stay. That's the entire place to
+            yourselves: every bedroom, the court, the pool, the barn, and all
+            thirteen acres. We'll include exact rates in our reply.
+          </p>
+          <div class="mt-6 border-t border-ink/10 pt-6">
+            <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-3">Availability</p>
+            <p class="font-body text-ink/70 text-sm leading-relaxed">
+              We keep the calendar off the internet on purpose. Tell us the
+              dates you're eyeing and we'll reply the same day with what's
+              open, and what's close.
+            </p>
           </div>
         </div>
 
@@ -181,7 +218,7 @@ import Layout from "../layouts/Layout.astro";
             </li>
             <li class="flex items-center gap-3">
               <span class="material-symbols-outlined text-moss">bed</span>
-              <span class="font-body text-ink/80 text-sm">Six bedrooms, up to sixteen</span>
+              <span class="font-body text-ink/80 text-sm">Eight bedrooms, up to fourteen</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="material-symbols-outlined text-moss">cabin</span>
@@ -198,6 +235,14 @@ import Layout from "../layouts/Layout.astro";
             <li class="flex items-center gap-3">
               <span class="material-symbols-outlined text-moss">restaurant</span>
               <span class="font-body text-ink/80 text-sm">Chef on request</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-moss">self_improvement</span>
+              <span class="font-body text-ink/80 text-sm">Yoga room in the guest house</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-moss">sports_basketball</span>
+              <span class="font-body text-ink/80 text-sm">Barn court and climbing wall</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="material-symbols-outlined text-moss">explore</span>
