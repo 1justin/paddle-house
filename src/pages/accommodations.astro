@@ -62,14 +62,27 @@ import Layout from "../layouts/Layout.astro";
             We've updated what needed updating and left the rest well enough alone. It's an old house, after all. That's rather the point.
           </p>
         </div>
-        <div class="mt-10 grid grid-cols-2 gap-8 border-t border-ink/15 pt-10">
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-10 border-t border-ink/15 pt-10">
           <div class="reveal">
-            <span class="block font-display text-4xl text-ink mb-1">6</span>
-            <span class="font-label text-xs tracking-[0.25em] uppercase text-ink/50">Bedrooms, main house</span>
+            <span class="block font-label text-xs tracking-[0.25em] uppercase text-ink/50 mb-4">Main house</span>
+            <ul class="space-y-1.5 font-body text-ink/75 text-sm leading-relaxed">
+              <li>1 king suite</li>
+              <li>8 queen beds</li>
+              <li>2 single beds</li>
+              <li>Pull-out couch if needed</li>
+              <li>6 bathrooms</li>
+            </ul>
           </div>
           <div class="reveal">
-            <span class="block font-display text-4xl text-ink mb-1">2</span>
-            <span class="font-label text-xs tracking-[0.25em] uppercase text-ink/50">Bedrooms, guest house</span>
+            <span class="block font-label text-xs tracking-[0.25em] uppercase text-ink/50 mb-4">Guest house</span>
+            <ul class="space-y-1.5 font-body text-ink/75 text-sm leading-relaxed">
+              <li>2 queen beds</li>
+              <li>3 single beds</li>
+              <li>Queen aerobed available</li>
+              <li>1 full-size loft</li>
+              <li>Pull-out couch if needed</li>
+              <li>2 bathrooms</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -203,7 +216,7 @@ import Layout from "../layouts/Layout.astro";
     <div data-pinned-scroll class="grounds-pin relative overflow-hidden h-screen hidden md:block">
       <div class="pinned-track h-full flex items-center gap-8 pl-[8vw] pr-[8vw] will-change-transform">
         <figure class="shrink-0 w-[72vw] lg:w-[56vw] h-[72vh] relative overflow-hidden editorial-shadow">
-          <img src="/paddle-house-pics/pond-summer.jpg" alt="The pond, its dock and rowboat, willows reflected" class="absolute inset-0 w-full h-full object-cover" />
+          <img src="/paddle-house-pics/pond-boat.jpg" alt="The pond, its dock and rowboat, the houses beyond" class="absolute inset-0 w-full h-full object-cover" />
           <figcaption class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
             <p class="font-label text-xs tracking-[0.25em] uppercase text-parchment-warm/75 mb-2">01 · The Pond</p>
             <h3 class="font-display text-3xl md:text-4xl text-parchment-warm">Water still enough to mirror the trees.</h3>
@@ -234,7 +247,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="absolute inset-0 p-10 md:p-14 flex flex-col justify-between text-parchment-warm">
             <p class="font-label text-xs tracking-[0.3em] uppercase text-parchment-warm/60">05 · The Rest</p>
             <div>
-              <h3 class="font-display text-3xl md:text-5xl leading-[1.1] mb-6">Stone walls, old maples, wooded trails, a fire pit, a hammock you'll forget about for an hour.</h3>
+              <h3 class="font-display text-3xl md:text-5xl leading-[1.1] mb-6">Stone walls, old maples, wooded trails, a fire pit, a pool chair you'll forget about for an hour.</h3>
               <a href="/book" class="inline-flex items-center gap-2 font-label text-sm tracking-wide border-b border-parchment-warm/40 pb-1 hover:border-parchment-warm transition-colors">
                 Write to John &amp; Erin
                 <span class="material-symbols-outlined text-base">arrow_forward</span>
@@ -248,7 +261,7 @@ import Layout from "../layouts/Layout.astro";
     {/* Mobile fallback: stacked grid, no pin */}
     <div class="md:hidden max-w-7xl mx-auto px-6 grid grid-cols-1 gap-6">
       <figure class="reveal-mask aspect-[4/5] relative overflow-hidden editorial-shadow">
-        <img src="/paddle-house-pics/pond-summer.jpg" alt="The pond and its dock" class="w-full h-full object-cover" />
+        <img src="/paddle-house-pics/pond-boat.jpg" alt="The pond and its dock" class="w-full h-full object-cover" />
         <figcaption class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
           <p class="font-label text-[10px] tracking-[0.25em] uppercase text-parchment-warm/70 mb-1">01 · The Pond</p>
           <h3 class="font-display text-2xl text-parchment-warm">Water still enough to mirror the trees.</h3>
@@ -293,7 +306,7 @@ import Layout from "../layouts/Layout.astro";
         <div class="bg-parchment p-10 editorial-shadow reveal">
           <span class="material-symbols-outlined text-moss text-3xl mb-6">favorite</span>
           <h3 class="font-display text-2xl text-ink mb-4">Paddle groups</h3>
-          <p class="font-body text-ink/65 mb-6 leading-relaxed">Eight to fourteen friends, a bracket, and a reason to stay an extra day. The house was practically built for this.</p>
+          <p class="font-body text-ink/65 mb-6 leading-relaxed">Up to 16 friends, a bracket, and a reason to stay an extra day. The house was practically built for this.</p>
           <a
             class="font-label text-xs tracking-[0.25em] uppercase text-copper flex items-center gap-2 hover:text-copper-soft transition-colors"
             href="/book"
