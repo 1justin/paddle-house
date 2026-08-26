@@ -57,17 +57,8 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
 
   {/* ─────────────────────── INVITATION STRIP ─────────────────────── */}
   <section class="paper bg-parchment py-24 md:py-32">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-8 lg:gap-12 items-start">
-      <div class="md:col-span-2 flex justify-center md:justify-start">
-        <div class="reveal-mask w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden editorial-shadow">
-          <img
-            src="/paddle-house-pics/john-erin-oros-paddle-selfie-in-car.png"
-            alt="Erin and John, paddles in hand"
-            class="w-full h-full object-cover img-zoom"
-          />
-        </div>
-      </div>
-      <div class="md:col-span-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="md:col-span-8">
         <p class="font-label text-xs tracking-[0.3em] uppercase text-patina mb-8 reveal">
           A note from the hosts
         </p>
@@ -86,6 +77,15 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
           </p>
         </div>
         <p class="reveal mt-10 font-body text-ink/70 text-lg italic">Erin &amp; John</p>
+      </div>
+      <div class="md:col-span-4 flex justify-start md:justify-end">
+        <div class="reveal-mask w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden editorial-shadow">
+          <img
+            src="/paddle-house-pics/john-erin-oros-paddle-selfie-in-car.png"
+            alt="Erin and John, paddles in hand"
+            class="w-full h-full object-cover img-zoom"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -272,7 +272,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
         Plan your weekend
       </p>
       <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
-        Pull up the drive. Make yourself at home.
+        Pull up the drive.<br />Make yourself at home.
       </h2>
       <div class="reveal mt-10">
         <a
