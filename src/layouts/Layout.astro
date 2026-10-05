@@ -14,6 +14,9 @@ const {
   description = "An 18th-century Connecticut farmhouse with a paddle court. Hosted by John & Erin.",
   current = "home",
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/assets/og-image.jpg", Astro.site);
 ---
 
 <!doctype html>
@@ -23,6 +26,19 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+
+    <!-- Link previews (iMessage, WhatsApp, Slack, Facebook, LinkedIn, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Paddle House at Goose Hill" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The paddle court, farmhouse, and barn at Goose Hill on a summer evening" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
