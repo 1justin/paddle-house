@@ -4,8 +4,8 @@ import { env as workerEnv } from "cloudflare:workers";
 export const prerender = false;
 
 /**
- * Inquiry endpoint. Sends the note to John & Erin (and Justin) via Resend.
- * Required Worker secrets (set with `npx wrangler secret put <NAME>`):
+ * Inquiry endpoint. Sends the note to the hosts' inbox via Resend.
+ * Required settings (Cloudflare dashboard > paddle-house > Settings > Variables and Secrets):
  *   RESEND_API_KEY  - API key from resend.com
  *   INQUIRY_TO      - comma-separated recipient email(s)
  * Optional:
