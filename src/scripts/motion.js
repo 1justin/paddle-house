@@ -17,8 +17,11 @@ if (!reduceMotion && window.gsap && window.ScrollTrigger) {
     // Preserve original text for screen readers before we tear it apart.
     const originalText = el.textContent ?? "";
 
-    // Normalize: replace <br> with \n so we can segment on it.
-    el.querySelectorAll("br").forEach((br) => br.replaceWith("\n"));
+    // Normalize: replace <br> with \n so we can segment on it. A <br> hidden at
+    // this screen size (e.g. class="hidden md:inline") is just a space.
+    el.querySelectorAll("br").forEach((br) =>
+      br.replaceWith(getComputedStyle(br).display === "none" ? " " : "\n"),
+    );
     const text = el.textContent ?? "";
 
     el.textContent = "";
@@ -26,12 +29,18 @@ if (!reduceMotion && window.gsap && window.ScrollTrigger) {
 
     // Split on explicit newlines first; each line holds words.
     const lines = text.split("\n");
-    lines.forEach((line, lineIdx) => {
-      const words = line.split(/(\s+)/); // keep whitespace as separators
+    lines.forEach((line) => {
+      if (!line.trim()) return;
+      // Each line is its own block so text-wrap: balance evens out its wrap
+      // (browsers don't balance across a forced <br>).
+      const lineEl = document.createElement("span");
+      lineEl.style.display = "block";
+      lineEl.style.textWrap = "balance";
+      const words = line.trim().split(/(\s+)/); // keep whitespace as separators
       words.forEach((chunk) => {
         if (chunk === "") return;
         if (/^\s+$/.test(chunk)) {
-          frag.appendChild(document.createTextNode(" "));
+          lineEl.appendChild(document.createTextNode(" "));
           return;
         }
         const wordEl = document.createElement("span");
@@ -45,11 +54,9 @@ if (!reduceMotion && window.gsap && window.ScrollTrigger) {
           charEl.style.display = "inline-block";
           wordEl.appendChild(charEl);
         }
-        frag.appendChild(wordEl);
+        lineEl.appendChild(wordEl);
       });
-      if (lineIdx < lines.length - 1) {
-        frag.appendChild(document.createElement("br"));
-      }
+      frag.appendChild(lineEl);
     });
 
     const sr = document.createElement("span");

@@ -26,9 +26,9 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
         Est. 1760 · Washington, Connecticut
       </p>
       <h1
-        class="reveal-chars font-display text-parchment-warm text-5xl sm:text-6xl md:text-8xl leading-[1.02] tracking-tight max-w-5xl letterpress"
+        class="reveal-chars font-display text-parchment-warm text-[2.75rem] sm:text-6xl md:text-8xl leading-[1.02] tracking-tight max-w-5xl letterpress"
       >
-        Old house. New memories.
+        Old house.<br /> New memories.
       </h1>
       <p
         class="reveal mt-8 font-body text-parchment-warm/85 text-lg md:text-xl max-w-xl leading-relaxed"
@@ -63,7 +63,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
           A note from the hosts
         </p>
         <p class="reveal-chars font-display italic text-2xl md:text-4xl leading-[1.25] text-ink mb-8">
-          Thanks for being here. We're so happy to share Goose Hill with you.
+          Thanks for being here.<br class="hidden xl:inline" /> We're so happy to share Goose Hill with you.
         </p>
         <div class="space-y-6 font-body text-ink/75 text-lg leading-relaxed reveal">
           <p>
@@ -77,9 +77,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
           </p>
         </div>
         <p class="reveal mt-10 font-body text-ink/70 text-lg italic">Erin &amp; John</p>
-      </div>
-      <div class="md:col-span-4 flex justify-start md:justify-end">
-        <div class="reveal-mask w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden editorial-shadow">
+        <div class="reveal-mask mt-8 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden editorial-shadow">
           <img
             src="/paddle-house-pics/john-erin-oros-house-selfie.jpg"
             alt="Erin and John outside the Goose Hill farmhouse"
@@ -93,14 +91,14 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
   {/* ─────────────────────── HOW THIS WORKS ─────────────────────── */}
   <section class="bg-parchment-warm py-24 md:py-32 paper">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <div class="max-w-2xl">
+      <div class="max-w-4xl">
         <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal">
           Not a listing
         </p>
         <h2 class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink mb-8">
           You won't find us on Airbnb.<br />On purpose.
         </h2>
-        <div class="space-y-5 font-body text-ink/75 text-lg leading-relaxed reveal">
+        <div class="max-w-2xl space-y-5 font-body text-ink/75 text-lg leading-relaxed reveal">
           <p>
             Goose Hill is our family's second home, and we intend to keep it
             feeling like one. So there's no instant-book button here. You write
@@ -121,7 +119,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
   <section class="bg-parchment-deep py-24 md:py-32 paper">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
       <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-end mb-16">
-        <div class="md:col-span-5">
+        <div class="md:col-span-7">
           <p
             class="font-label text-xs tracking-[0.3em] uppercase text-moss mb-5 reveal"
           >
@@ -130,10 +128,10 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
           <h2
             class="reveal-chars font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink"
           >
-            A court that takes the weather personally.
+            A court that takes<br class="hidden lg:inline" /> the weather personally.
           </h2>
         </div>
-        <div class="md:col-span-6 md:col-start-7">
+        <div class="md:col-span-5 md:col-start-8">
           <p class="reveal font-body text-ink/75 text-lg leading-relaxed">
             Whether it's a crisp October morning, a snowy February afternoon,
             or a warm summer evening, the game is always on. Our regulation
@@ -156,7 +154,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
   {/* ──────────────────────────── THE STAY ────────────────────────── */}
   <section class="bg-parchment py-24 md:py-32 paper">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <div class="max-w-2xl mb-20">
+      <div class="max-w-4xl mb-20">
         <p
           class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal"
         >
@@ -167,7 +165,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
         >
           Rooms with stories to tell.
         </h2>
-        <p class="reveal mt-6 font-body text-ink/70 text-lg leading-relaxed">
+        <p class="reveal mt-6 max-w-2xl font-body text-ink/70 text-lg leading-relaxed">
           Six bedrooms in the main house and two more in the guest house
           provide space to gather without ever feeling crowded. Historic in
           character, thoughtfully updated, and designed for long weekends
@@ -229,7 +227,7 @@ import BackgroundVideo from "../components/BackgroundVideo.astro";
   {/* ─────────────────────── GUEST WORDS ─────────────────────── */}
   <section class="bg-parchment-deep py-24 md:py-32 paper">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <div class="max-w-2xl mb-16">
+      <div class="max-w-4xl mb-16">
         <p class="font-label text-xs tracking-[0.3em] uppercase text-copper mb-5 reveal">
           From past guests
         </p>
