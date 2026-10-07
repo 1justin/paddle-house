@@ -52,6 +52,14 @@
     font-feature-settings: "ss01", "liga";
   }
 
+  /* Balance heading lines so desktop titles never strand a word or break mid-phrase. */
+  h1,
+  h2,
+  h3,
+  .reveal-chars {
+    text-wrap: balance;
+  }
+
   ::selection {
     background: var(--color-moss);
     color: var(--color-parchment);
