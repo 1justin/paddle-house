@@ -4,6 +4,10 @@
 	"name": "paddle-house-astro",
 	// Keep INQUIRY_* vars set in the Cloudflare dashboard; without this, each deploy wipes them.
 	"keep_vars": true,
+	"vars": {
+		// Who gets emailed if the inquiry form can't deliver a guest's note.
+		"ALERT_TO": "justin@wrkstream.com,hellogoosehill@gmail.com"
+	},
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
