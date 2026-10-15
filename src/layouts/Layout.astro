@@ -7,12 +7,15 @@ interface Props {
   title: string;
   description?: string;
   current?: "experience" | "accommodations" | "story" | "book" | "home";
+  /** Structured data (schema.org) for search engines, rendered as JSON-LD. */
+  jsonLd?: Record<string, unknown>;
 }
 
 const {
   title,
   description = "An 18th-century Connecticut farmhouse with a paddle court. Hosted by John & Erin.",
   current = "home",
+  jsonLd,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -27,6 +30,7 @@ const ogImage = new URL("/assets/og-image.png", Astro.site);
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
     <!-- Link previews (iMessage, WhatsApp, Slack, Facebook, LinkedIn, X) -->
     <meta property="og:type" content="website" />

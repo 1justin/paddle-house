@@ -1,9 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BackgroundVideo from "../components/BackgroundVideo.astro";
+
+// What Google reads about the property (shown in search results, maps, and AI answers).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  name: "The Paddle House at Goose Hill",
+  url: "https://playatgoosehill.com/",
+  description:
+    "An 18th-century farmhouse on thirteen acres in Washington, Connecticut, with a heated platform tennis court, pool, pond, and barn. Six bedrooms plus a two-bedroom guest house, for groups of up to 16. Hosted by John & Erin.",
+  image: [
+    "https://playatgoosehill.com/paddle-house-pics/court-estate.jpg",
+    "https://playatgoosehill.com/paddle-house-pics/court-night.jpg",
+    "https://playatgoosehill.com/paddle-house-pics/house-willow.jpg",
+  ],
+  logo: "https://playatgoosehill.com/assets/logo-320.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Washington",
+    addressRegion: "CT",
+    addressCountry: "US",
+  },
+  numberOfRooms: 8,
+  amenityFeature: [
+    "Heated platform tennis court",
+    "Heated in-ground pool",
+    "Private pond",
+    "Restored barn",
+    "Working fireplaces",
+  ].map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })),
+};
 ---
 
-<Layout title="The Paddle House at Goose Hill | Washington, CT" current="home">
+<Layout title="The Paddle House at Goose Hill | Washington, CT" current="home" jsonLd={jsonLd}>
   {/* ───────────────────────────── HERO ───────────────────────────── */}
   <section class="relative min-h-[92vh] flex items-end overflow-hidden">
     <div class="absolute inset-0 reveal-mask">
