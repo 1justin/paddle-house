@@ -1,7 +1,7 @@
 {
 	"compatibility_date": "2026-04-17",
 	"compatibility_flags": ["global_fetch_strictly_public"],
-	"name": "paddle-house-astro",
+	"name": "paddle-house",
 	// Keep INQUIRY_* vars set in the Cloudflare dashboard; without this, each deploy wipes them.
 	"keep_vars": true,
 	"vars": {
