@@ -38,7 +38,7 @@ test("retries once on a Resend blip, no alert", async () => {
   const res = await handleInquiry(GUEST, ENV, doFetch);
   assert.equal(res.body.ok, true);
   assert.equal(calls.length, 2);
-  assert.ok(calls.every((c) => !c.subject.startsWith("Action needed")));
+  assert.ok(calls.every((c) => !c.subject.includes("via backup")));
 });
 
 test("Resend rejects the inquiry -> alert carries the problem and the full inquiry", async () => {
@@ -46,7 +46,7 @@ test("Resend rejects the inquiry -> alert carries the problem and the full inqui
   const res = await handleInquiry(GUEST, ENV, doFetch);
   assert.deepEqual(res, { status: 200, body: { ok: true } }); // hosts got it via the alert
   const alert = calls[1];
-  assert.match(alert.subject, /^Action needed: website form failed \(inquiry from Jane Guest\)/);
+  assert.match(alert.subject, /^Paddle House inquiry: Jane Guest \(via backup\)$/);
   assert.deepEqual(alert.to, ["justin@example.com", "hosts@example.com"]);
   assert.equal(alert.reply_to, "jane@example.com");
   assert.match(alert.text, /Resend returned 422/);
